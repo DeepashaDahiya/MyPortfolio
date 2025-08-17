@@ -18,16 +18,18 @@ function createGalaxySparkle() {
   sparkle.style.height = `${size}px`;
 
   // Remove after animation
-  setTimeout(() => sparkle.remove(), 2000);
+  setTimeout(() => sparkle.remove(), 2500);
 }
 
 // Generate sparkles every 500–1000ms randomly
 setInterval(() => {
-  if (Math.random() > 0.4) { // ~40% chance per interval
+  if (Math.random() > 0.2) { // ~40% chance per interval
     createGalaxySparkle();
   }
-}, 800);
+}, 500);
 const hero = document.querySelector(".hero");
+setTimeout(() => sparkle.remove(), 3500); 
+
 
 hero.addEventListener("mousemove", (e) => {
   const sparkle = document.createElement("span");
@@ -41,10 +43,11 @@ hero.addEventListener("mousemove", (e) => {
   sparkle.style.left = `${x}px`;
   sparkle.style.top = `${y}px`;
 
+
   // Remove sparkle after animation ends
   setTimeout(() => {
     sparkle.remove();
-  }, 1200);
+  }, 2500);
 });
 // Optional: cute alert for the contact form
 document.querySelector("form").addEventListener("submit", function(e) {
@@ -53,4 +56,5 @@ document.querySelector("form").addEventListener("submit", function(e) {
   });
 
   
+
 
