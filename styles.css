@@ -54,6 +54,8 @@ nav {
   padding: 4rem 1rem;
   background: linear-gradient(135deg, #00aaff, #004466);
   color: white;
+  z-index: 1;
+
 }
 
 .hero-buttons a {
@@ -80,8 +82,36 @@ nav {
   border-radius: 50%;
   pointer-events: none;
   animation: sparkleAnim 0.8s forwards;
-  z-index: 10;
+  z-index: 0;
 }
+
+.sparkle::before, .sparkle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(to right, transparent, white, transparent);
+  width: 20px;
+  height: 2px;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+.sparkle::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+@keyframes diamondTwinkle {
+  0%   { transform: scale(0.3) rotate(0deg); opacity: 0; }
+  50%  { transform: scale(1) rotate(45deg); opacity: 1; }
+  100% { transform: scale(0.3) rotate(90deg); opacity: 0; }
+}
+
+.sparkle {
+  animation: diamondTwinkle 1.2s forwards;
+}
+
 
 @keyframes sparkleAnim {
   0% {
@@ -158,4 +188,5 @@ footer {
   background: #0d1117;
   color: white;
 }
+
 
